@@ -24,14 +24,12 @@ contract RLC is ERC20, SafeMath, Ownable {
    *  The FaucetRLC Token created with the time at which the crowdsale end
    */
 
-  function FaucetRLC(address faucetAgent1, address faucetAgent2, address faucetAgent3) {
+  function FaucetRLC() {
 
     initialSupply = 87000000000000000;
     totalSupply = initialSupply;
-    balances[faucetAgent1] = 29000000000000000;
-    balances[faucetAgent2] = 29000000000000000;
-    balances[faucetAgent3] = 29000000000000000;
-    name = 'iEx.ec Network Token';        // Set the name for display purposes
+    balances[msg.sender] = initialSupply;// Give the creator all initial tokens
+    name = 'iExec RLC Token';        // Set the name for display purposes
     symbol = 'RLC';                       // Set the symbol for display purposes
     decimals = 9;                        // Amount of decimals for display purposes
   }
