@@ -24,8 +24,7 @@ contract RLC is ERC20, SafeMath, Ownable {
    *  The FaucetRLC Token created with the time at which the crowdsale end
    */
 
-  function FaucetRLC() {
-
+  function RLC() {
     initialSupply = 87000000000000000;
     totalSupply = initialSupply;
     balances[msg.sender] = initialSupply;// Give the creator all initial tokens
