@@ -1,19 +1,19 @@
-pragma solidity ^0.4.8;
+pragma solidity ^0.5.0;
 //v0.1.0
 contract Ownable {
-  address public owner;
+	address public owner;
 
-  function Ownable() {
-    owner = msg.sender;
-  }
+	constructor() public {
+		owner = msg.sender;
+	}
 
-  modifier onlyOwner() {
-    if (msg.sender == owner)
-      _;
-  }
+	modifier onlyOwner() {
+		require (msg.sender == owner);
+		_;
+	}
 
-  function transferOwnership(address newOwner) onlyOwner {
-    if (newOwner != address(0)) owner = newOwner;
-  }
+	function transferOwnership(address newOwner) public onlyOwner {
+		if (newOwner != address(0)) owner = newOwner;
+	}
 
 }
