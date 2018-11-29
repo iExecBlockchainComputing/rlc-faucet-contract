@@ -1,8 +1,18 @@
 pipeline:
   npm:
     image: plugins/npm
-    secrets: [ npm_password ]
+    secrets: [npm_password]
     username: sulliwane
     email: sulliwane@gmail.com
+    tag: latest
     when:
-      event: tag
+      ref: [refs/tags/v1*]
+
+  npm_next:
+    image: plugins/npm
+    secrets: [npm_password]
+    username: sulliwane
+    email: sulliwane@gmail.com
+    tag: next
+    when:
+      ref: [refs/tags/v2*]
